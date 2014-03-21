@@ -2,6 +2,15 @@
 
 A draggable meta-component with a few different dragging behaviors: `free-drag`, `grid-snap-drag`, and `guideline-snap-drag`.
 
+## Demo
+
+Run the visualize example to get a sense of the draggable behaviors:
+
+    lein cljsbuild once
+    open http://localhost:4005/examples/visualize/
+    python -m SimpleHTTPServer 4005
+
+
 ## Usage
 
     (ns visualize.core
