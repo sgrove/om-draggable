@@ -21,6 +21,14 @@
 ;;  Various draggable implementations of dragging
 ;;******************************************************************************
 
+(defn -drag-start [owner event]
+  (let [node (om/get-node owner)
+        rel-x (- (.-pageX event) (.-offsetLeft node))
+        rel-y (- (.-pageY event) (.-offsetTop node))]
+    (om/set-state! owner :dragging true)
+    (om/set-state! owner :rel-x rel-x)
+    (om/set-state! owner :rel-y rel-y)))
+
 ;;******************************************************************************
 ;;  - Free-drag
 ;;******************************************************************************
@@ -29,12 +37,7 @@
   (reify
     IDragStart
     (drag-start [_ event]
-      (let [node (om/get-node owner)
-            rel-x (- (.-pageX event) (.-offsetLeft node))
-            rel-y (- (.-pageY event) (.-offsetTop node))]
-        (om/set-state! owner :dragging true)
-        (om/set-state! owner :rel-x rel-x)
-        (om/set-state! owner :rel-y rel-y)))
+      (-drag-start owner event))
     IDragMove
     (drag-move [_ event]
       (when (om/get-state owner :dragging)
@@ -99,12 +102,7 @@
   (reify
     IDragStart
     (drag-start [_ event]
-      (let [node (om/get-node owner)
-            rel-x (- (.-pageX event) (.-offsetLeft node))
-            rel-y (- (.-pageY event) (.-offsetTop node))]
-        (om/set-state! owner :dragging true)
-        (om/set-state! owner :rel-x rel-x)
-        (om/set-state! owner :rel-y rel-y)))
+      (-drag-start owner event))
     IDragMove
     (drag-move [_ event]
       (when (om/get-state owner :dragging)
@@ -183,12 +181,7 @@
   (reify
     IDragStart
     (drag-start [_ event]
-      (let [node (om/get-node owner)
-            rel-x (- (.-pageX event) (.-offsetLeft node))
-            rel-y (- (.-pageY event) (.-offsetTop node))]
-        (om/set-state! owner :dragging true)
-        (om/set-state! owner :rel-x rel-x)
-        (om/set-state! owner :rel-y rel-y)))
+      (-drag-start owner event))
     IDragMove
     (drag-move [_ event]
       (when (om/get-state owner :dragging)
