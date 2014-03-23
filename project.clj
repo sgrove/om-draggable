@@ -7,11 +7,12 @@
                  [org.clojure/core.async "0.1.267.0-0d7780-alpha"]
                  [om "0.5.0"]]
 
-  :plugins [[lein-cljsbuild "1.0.2"]]
+  :plugins [[lein-cljsbuild "1.0.2"]
+            [lein-simpleton "1.2.0"]]
 
   :source-paths ["src"]
 
-  :cljsbuild { 
+  :cljsbuild {
     :builds [{:id "draggable"
               :source-paths ["src"]
               :compiler {
