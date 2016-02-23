@@ -2,12 +2,13 @@
   :description "Draggable component for Om"
   :url "http://github.com/sgrove/om-draggable"
 
-  :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/clojurescript "0.0-2156"]
-                 [org.clojure/core.async "0.1.267.0-0d7780-alpha"]
-                 [om "0.5.0"]]
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/clojurescript "1.7.228"]
+                 [org.clojure/core.async "0.2.374"]
+                 [org.omcljs/om "0.9.0"]]
 
-  :plugins [[lein-cljsbuild "1.0.2"]]
+  :plugins [[lein-cljsbuild "1.1.2"]
+            [lein-figwheel "0.5.0-3"]]
 
   :source-paths ["src"]
 
@@ -15,14 +16,14 @@
     :builds [{:id "draggable"
               :source-paths ["src"]
               :compiler {
-                :output-to "draggable.js"
-                :output-dir "out"
+                :output-to "resources/public/draggable.js"
+                :output-dir "resources/public/out"
                 :optimizations :none
                 :source-map true}}
              {:id "visualize"
               :source-paths ["src" "examples/visualize/src"]
               :compiler {
-                :output-to "examples/visualize/main.js"
-                :output-dir "examples/visualize/out"
+                :output-to "resources/public/examples/visualize/main.js"
+                :output-dir "resources/public/examples/visualize/out"
                 :source-map true
                 :optimizations :none}}]})
