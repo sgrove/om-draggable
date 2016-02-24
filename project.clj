@@ -13,17 +13,19 @@
   :source-paths ["src"]
 
   :cljsbuild { 
-    :builds [{:id "draggable"
+    :builds [{:id "visualize"
+              :source-paths ["src" "examples/visualize/src"]
+              :figwheel true
+              :compiler {
+                :output-to "resources/public/examples/visualize/main.js"
+                :output-dir "resources/public/examples/visualize/out"
+                :source-map true
+                :optimizations :none}}
+             {:id "draggable"
               :source-paths ["src"]
               :compiler {
                 :output-to "resources/public/draggable.js"
                 :output-dir "resources/public/out"
                 :optimizations :none
                 :source-map true}}
-             {:id "visualize"
-              :source-paths ["src" "examples/visualize/src"]
-              :compiler {
-                :output-to "resources/public/examples/visualize/main.js"
-                :output-dir "resources/public/examples/visualize/out"
-                :source-map true
-                :optimizations :none}}]})
+             ]})

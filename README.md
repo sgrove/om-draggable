@@ -6,9 +6,8 @@ A draggable meta-component with a few different dragging behaviors: `free-drag`,
 
 Run the visualize example to get a sense of the draggable behaviors:
 
-    lein cljsbuild once
-    python -m SimpleHTTPServer 4005
-    open http://localhost:4005/examples/visualize/
+    lein figwheel
+    open http://localhost:3449/examples/visualize/index.html
 
 
 ## Usage
